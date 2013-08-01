@@ -6,7 +6,7 @@ require 'action_view'
 require File.dirname(__FILE__) + '/connection'
 require 'stringio'
 
-RAILS_ROOT = File.dirname(__FILE__)
+Rails.root = File.dirname(__FILE__)
 RAILS_ENV = ""
 
 $: << "../lib"

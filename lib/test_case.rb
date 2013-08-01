@@ -70,8 +70,8 @@ class Test::Unit::TestCase
   #    # ...
   #  end
   def setup_fixture_files
-    tmp_path = File.join(RAILS_ROOT, "test", "tmp", "file_column")
-    file_fixtures = Dir.glob File.join(RAILS_ROOT, "test", "fixtures", "file_column", "*")
+    tmp_path = File.join(Rails.root, "test", "tmp", "file_column")
+    file_fixtures = Dir.glob File.join(Rails.root, "test", "fixtures", "file_column", "*")
     
     FileUtils.mkdir_p tmp_path unless File.exists?(tmp_path)
     FileUtils.cp_r file_fixtures, tmp_path
@@ -89,7 +89,7 @@ class Test::Unit::TestCase
   #    # ...
   #  end
   def teardown_fixture_files
-    FileUtils.rm_rf File.join(RAILS_ROOT, "test", "tmp", "file_column")
+    FileUtils.rm_rf File.join(Rails.root, "test", "tmp", "file_column")
   end
   
   private
@@ -120,5 +120,5 @@ end
 # in tests but rather into the directory "/test/tmp/file_column".
 if RAILS_ENV == "test"
   FileColumn::ClassMethods::DEFAULT_OPTIONS[:root_path] =
-    File.join(RAILS_ROOT, "test", "tmp", "file_column")
+    File.join(Rails.root, "test", "tmp", "file_column")
 end
